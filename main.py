@@ -8,7 +8,7 @@ screen = Screen()
 screen.colormode(255)
 screen.setup(width=600, height=600)
 screen.bgcolor("black")
-screen.title("My snake game")
+screen.title("Andreea's Snake Game")
 screen.tracer(0)
 
 scoreboard = Scoreboard()
@@ -47,6 +47,7 @@ while game_is_on:
     if pre_game:
         pass
     else:
+        start_message.clear()
         snake.move()
 
     # Detect collision with food:
@@ -64,26 +65,12 @@ while game_is_on:
     ):
         scoreboard.reset()
         snake.reset()
-        # game_is_on = False
-        # scoreboard.game_over()
 
     # Detect collision with tail:
     for segment in snake.segments[1:]:
         if snake.head.distance(segment) < 10:
             scoreboard.reset()
             snake.reset()
-            # scoreboard.game_over()
-            # game_is_on = False
 
 
 screen.exitonclick()
-
-
-# TODO:
-# 1 Before game starts, ask player to input snake name
-# 2 Ask player to start the game
-# 3 Add timer T-5 sec till snake starts moving
-# 4 When snake collides with walls or tail, reset game, and ask player if they want to try again
-# 5 If player decides not to try again, clear screen, center display high-score for top 5 snakes
-# 6 Add music (maybe)
-# 7 Change snake color

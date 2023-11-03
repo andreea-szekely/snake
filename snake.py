@@ -7,16 +7,13 @@ UP = 90
 DOWN = 270
 RIGHT = 0
 LEFT = 180
-# COLORCOUNT = 100
 
 
 class Snake:
     colorcount = 100
 
     def __init__(self):
-        # super().__init__()
         self.segments = []
-        # self.colormode(255)
         self.create_snake()
         self.head = self.segments[0]
         self.tail = self.segments[-1]
@@ -28,14 +25,14 @@ class Snake:
     def add_segment(self, position):
         new_segment = Turtle("square")
         new_segment.color((0, self.colorcount, 0))
-        self.colorcount += 5
+        self.colorcount += 7
         new_segment.penup()
         new_segment.goto(position)
         self.segments.append(new_segment)
 
     def reset(self):
         for seg in self.segments:
-            seg.goto(1000, 1000)
+            seg.reset()
         self.segments.clear()
         self.create_snake()
         self.head = self.segments[0]
